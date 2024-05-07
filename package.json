@@ -16,6 +16,7 @@
     "vue-template-compiler": "^2.7.10"
   },
   "devDependencies": {
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.0",
+    "sass": "1.7"
   }
 }

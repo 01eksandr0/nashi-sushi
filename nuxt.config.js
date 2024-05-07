@@ -30,5 +30,13 @@ export default {
   modules: [],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    extend(config, { isDev, isClient }) {
+      // Настройка правил для обработки SCSS файлов
+      config.module.rules.push({
+        test: /\.scss$/,
+        use: [],
+      });
+    },
+  },
 };
