@@ -1,9 +1,10 @@
 <template>
-  <div v-if="media" class="phoneContact" @click="active = !active">
+  <div v-if="1" class="phoneContact" @click="active = !active">
     <a class="phoneLink">
       <div class="imageContainer"></div>
     </a>
     <p class="tell">+38 (065) 345-67-89</p>
+
     <v-icon name="bi-chevron-down" :class="{ 'icon-active': active }" />
     <PhoneModal v-if="active" />
   </div>
@@ -19,15 +20,22 @@
 
 <script>
 import PhoneModal from "./PhoneModal.vue";
+
 export default {
   components: { PhoneModal },
   name: "Telephone",
   data() {
     return {
-      media:
-        parseInt(getComputedStyle(document.querySelector("body")).width) > 767,
+      media: 0,
       active: false,
     };
+  },
+  beforeMount() {
+    if (process.client) {
+      this.media = window.innerWidth;
+    } else {
+      this.media = 0;
+    }
   },
 };
 </script>

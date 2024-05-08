@@ -3,8 +3,8 @@
     <Container>
       <div class="container-header">
         <Logo />
-        <!-- <Telephone /> -->
-        <!-- <NavBar :openMobailMenu="openMobailMenu" /> -->
+        <Telephone />
+        <NavBar :openMobailMenu="openMobailMenu" />
       </div>
     </Container>
     <!-- <FilterScroll v-if="$route.path === '/' && getProducts.drinks" /> -->

@@ -2,21 +2,19 @@
   <div class="filter">
     <Container>
       <ul class="scroll-bar">
-        <li v-for="value in getProducts" :key="value[0].menu_category_id">
+        <!-- <li v-for="value in getProducts" :key="value[0].menu_category_id">
           <a :href="'#' + value[0].menu_category_id" class="scroll-link">{{
             value[0].category_name
           }}</a>
-        </li>
+        </li> -->
       </ul>
     </Container>
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 export default {
   name: "FilterScroll",
-  computed: mapGetters(["getProducts"]),
 };
 </script>
 
