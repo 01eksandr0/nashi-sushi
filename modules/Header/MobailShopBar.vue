@@ -1,69 +1,58 @@
 <template>
-  <div class="filter">
-    <Container>
-      <ul class="scroll-bar">
-        <!-- <li v-for="value in getProducts" :key="value[0].menu_category_id">
-          <a :href="'#' + value[0].menu_category_id" class="scroll-link">{{
-            value[0].category_name
-          }}</a>
-        </li> -->
-      </ul>
-    </Container>
+  <div v-if="getQuantity" class="shop-bar">
+    <p class="quantity">{{ getQuantity }} товар,</p>
+    <p class="sum">{{ getSum }}грн</p>
+    <router-link class="link" to="/shop"
+      >Замовити<v-icon name="bi-chevron-right"
+    /></router-link>
   </div>
 </template>
 
 <script>
+import { useShop } from "../../stores/shop";
 export default {
-  name: "FilterScroll",
+  computed: {
+    getQuantity: () => useShop().getQuantity,
+    getSum: () => useShop().getSum,
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.filter {
-  display: none;
+.shop-bar {
+  position: fixed;
+  transform: translateX(-50%);
+  bottom: 10px;
+  left: 50%;
+  z-index: 1;
+  background-color: $orange;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border-radius: 30px;
+}
+.quantity {
+  white-space: nowrap;
+  color: #fff;
+  font-size: 18px;
+}
+.sum {
+  color: #fff;
+  font-size: 18px;
+}
+.link {
+  color: #fff;
+  font-size: 20px;
+  white-space: nowrap;
+  &:hover,
+  &:focus {
+    color: #fff;
+  }
 }
 @include media(tablet) {
-  .filter {
-    position: absolute;
-    top: 100px;
-    left: 0;
-    right: 0;
-    display: block;
-  }
-  .scroll-bar {
-    display: flex;
-    width: 100%;
-    height: 50px;
-    align-items: center;
-    justify-content: baseline;
-    gap: 20px;
-    overflow: auto;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    overflow: -moz-scrollbars-none;
-    &::-webkit-scrollbar {
-      display: none;
-    }
-  }
-  .scroll-link {
-    padding: 10px 15px;
-    color: #000;
-    font-size: 20px;
-    white-space: nowrap;
-    border-radius: 20px;
-    background-color: #fff;
-    transition: color $animation-duration $animation-time-function,
-      background-color $animation-duration $animation-time-function;
-    &:hover,
-    &:focus {
-      color: $orange;
-      background-color: #cec7ca;
-    }
-  }
-}
-@include media(desktop) {
-  .filter {
-    top: 85px;
+  .shop-bar {
+    display: none;
   }
 }
 </style>
