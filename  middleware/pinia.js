@@ -1,10 +1,13 @@
 // middleware/pinia.js
+import { defineNuxtPlugin } from "#app";
 import { createPinia } from "pinia";
 
-export default function ({ app }) {
+const piniaPlugin = defineNuxtPlugin((nuxtApp) => {
   // Создайте экземпляр хранилища Pinia
   const pinia = createPinia();
 
   // Инъекция хранилища в контекст приложения
-  app.use(pinia);
-}
+  nuxtApp.app.use(pinia);
+});
+
+export default piniaPlugin;

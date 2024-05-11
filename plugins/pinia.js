@@ -1,10 +1,13 @@
-import { createPinia } from "pinia";
-import Vue from "vue";
+import { defineNuxtPlugin } from "#app";
 
-const pinia = createPinia();
+// Экспортируем плагин, обернутый в defineNuxtPlugin
+export default defineNuxtPlugin((nuxtApp) => {
+  // Если вы используете Vue 2, Vue 3 не импортируется из Nuxt.js
+  const { createPinia } = nuxtApp.$pinia;
 
-// Глобально установите Pinia для использования в приложении Vue
-Vue.use(pinia);
+  // Создаем экземпляр Pinia
+  const pinia = createPinia();
 
-// Экспортируйте Pinia, если это необходимо для других модулей
-export default pinia;
+  // Глобально устанавливаем Pinia для использования в приложении Vue
+  nuxtApp.app.use(pinia);
+});

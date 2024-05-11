@@ -82,14 +82,13 @@
 <script>
 import MobailShopBar from "../modules/Header/MobailShopBar.vue";
 import { useProducts } from "../stores/products";
-const products = useProducts();
-const getProducts = products.getProducts;
+
 export default {
   components: { MobailShopBar },
-  data() {
-    return {
-      getProducts,
-    };
+  computed: {
+    products() {
+      return useProducts().getProducts;
+    },
   },
 };
 </script>
