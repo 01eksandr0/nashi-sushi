@@ -2,19 +2,25 @@
   <div class="filter">
     <Container>
       <ul class="scroll-bar">
-        <!-- <li v-for="value in products" :key="value[0].menu_category_id">
+        <li v-for="value in products" :key="value[0].menu_category_id">
           <a :href="'#' + value[0].menu_category_id" class="scroll-link">{{
             value[0].category_name
           }}</a>
-        </li> -->
+        </li>
       </ul>
     </Container>
   </div>
 </template>
 
 <script>
+import { useProducts } from "../../stores/products";
 export default {
   name: "FilterScroll",
+  computed: {
+    products() {
+      return useProducts().getProducts;
+    },
+  },
 };
 </script>
 

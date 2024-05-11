@@ -11,11 +11,11 @@
         </a>
       </li>
       <li class="shop">
-        <router-link to="/shop" class="nav-link"
+        <NuxtLink to="/shop" class="nav-link"
           >Кошик
           <v-icon name="fa-shopping-cart" />
-        </router-link>
-        <!-- <span v-if="getQuantity" class="quantity">{{}}</span> -->
+        </NuxtLink>
+        <span v-if="getQuantity" class="quantity">{{ getQuantity }}</span>
       </li>
       <li class="menu-btn">
         <button class="nav-link" @click="openMobailMenu">
@@ -27,13 +27,17 @@
 </template>
 
 <script>
-// import { mapGetters } from "vuex";
+import { useShop } from "../../stores/shop";
 export default {
   name: "NavBar",
   props: {
     openMobailMenu: Function,
   },
-  //   computed: mapGetters(["getQuantity"]),
+  computed: {
+    getQuantity() {
+      return useShop().getQuantity;
+    },
+  },
 };
 </script>
 

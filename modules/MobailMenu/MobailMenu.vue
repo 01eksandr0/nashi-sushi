@@ -4,14 +4,14 @@
       <v-icon name="io-close" scale="2" />
     </button>
     <ul class="list">
-      <!-- <li v-for="value in getProducts" :key="value[0].menu_category_id">
+      <li v-for="value in getProducts" :key="value[0].menu_category_id">
         <a
           @click="closeModalMenu"
           :href="'#' + value[0].menu_category_id"
           class="list-link"
           >{{ value[0].category_name }}</a
         >
-      </li> -->
+      </li>
     </ul>
     <ul class="address-list">
       <li>
@@ -26,13 +26,17 @@
 </template>
 
 <script>
-// import { mapGetters } from "vuex";
+import { useProducts } from "../../stores/products";
 export default {
   name: "MobailMenu",
   props: {
     closeModalMenu: Function,
   },
-  //   computed: mapGetters(["getProducts"]),
+  computed: {
+    getProducts() {
+      return useProducts().getProducts;
+    },
+  },
 };
 </script>
 

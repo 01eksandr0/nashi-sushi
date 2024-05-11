@@ -7,8 +7,8 @@
         <NavBar :openMobailMenu="openMobailMenu" />
       </div>
     </Container>
-    <!-- <FilterScroll v-if="$route.path === '/' && getProducts.drinks" /> -->
-    <!-- <MobailMenu v-if="isMobailMenu" :closeModalMenu="closeModalMenu" /> -->
+    <FilterScroll v-if="$route.path === '/' && getProducts.drinks" />
+    <MobailMenu v-if="isMobailMenu" :closeModalMenu="closeModalMenu" />
   </header>
 </template>
 
@@ -17,6 +17,7 @@ import MobailMenu from "../MobailMenu/MobailMenu.vue";
 import NavBar from "./NavBar.vue";
 import Telephone from "./Telephone.vue";
 import FilterScroll from "./FilterScroll.vue";
+import { useProducts } from "../stores/products";
 
 export default {
   components: { NavBar, Telephone, FilterScroll, MobailMenu },
@@ -24,6 +25,11 @@ export default {
     return {
       isMobailMenu: false,
     };
+  },
+  computed: {
+    getProducts() {
+      return useProducts().getProducts;
+    },
   },
   methods: {
     openMobailMenu() {

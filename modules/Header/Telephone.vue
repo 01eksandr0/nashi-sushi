@@ -1,17 +1,18 @@
 <template>
-  <div v-if="1" class="phoneContact" @click="active = !active">
+  <div class="phoneContact" @click="active = !active">
     <a class="phoneLink">
       <div class="imageContainer"></div>
     </a>
     <p class="tell">+38 (065) 345-67-89</p>
-
     <v-icon name="bi-chevron-down" :class="{ 'icon-active': active }" />
     <PhoneModal v-if="active" />
   </div>
   <div
-    v-else
     @click="active = !active"
-    :class="{ phoneContainer: true, phoneContainerActive: active }"
+    :class="{
+      phoneContainer: true,
+      phoneContainerActive: active,
+    }"
   >
     <v-icon name="bi-telephone" :fill="active ? 'rgb(235, 109, 10)' : '#000'" />
     <PhoneModal v-if="active" />
@@ -20,23 +21,14 @@
 
 <script>
 import PhoneModal from "./PhoneModal.vue";
-
 export default {
   components: { PhoneModal },
-  name: "Telephone",
   data() {
     return {
-      media: 0,
       active: false,
     };
   },
-  beforeMount() {
-    if (process.client) {
-      this.media = window.innerWidth;
-    } else {
-      this.media = 0;
-    }
-  },
+  name: "Telephone",
 };
 </script>
 
@@ -65,13 +57,13 @@ export default {
 }
 @keyframes changeImage {
   0% {
-    background-image: url("../../assets/svg/phone.svg");
+    background-image: url("../../assets/img/telephone/phone.svg");
   }
   50% {
-    background-image: url("../../assets/svg/phone_call.svg");
+    background-image: url("../../assets/img/telephone/phone_call.svg");
   }
   100% {
-    background-image: url("../../assets/svg/icon_call2.svg");
+    background-image: url("../../assets/img/telephone/icon_call2.svg");
   }
 }
 
@@ -80,7 +72,14 @@ export default {
   height: 28px;
   background-repeat: no-repeat;
   animation: changeImage 1.5s infinite;
-
+  @include media(tablet) {
+    .mobail {
+      display: none;
+    }
+    .desk {
+      display: block;
+    }
+  }
   @include media(desktop) {
     width: 24px;
     height: 24px;
@@ -93,7 +92,7 @@ export default {
   }
 }
 .phoneContact {
-  display: flex;
+  display: none;
   gap: 8px;
   justify-content: center;
   align-items: center;
@@ -113,6 +112,9 @@ export default {
   }
   &:hover svg {
     fill: $orange;
+  }
+  @include media(tablet) {
+    display: flex;
   }
   @include media(desktop) {
     padding: 8px;
@@ -134,6 +136,11 @@ export default {
 
 @include media(to-desktop) {
   .numberForDesk {
+    display: none;
+  }
+}
+@include media(tablet) {
+  .phoneContainer {
     display: none;
   }
 }

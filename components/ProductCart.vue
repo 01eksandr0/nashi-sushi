@@ -19,11 +19,15 @@
       <div class="bottom">
         <p class="price">{{ info.price[1].slice(0, -2) }} грн</p>
         <div class="control">
-          <button class="btn-minus" @click="discrimProduct(info.product_id)">
+          <button
+            class="btn-minus"
+            v-if="getQuantity"
+            @click="discrimProduct(info.product_id)"
+          >
             -
           </button>
-          <!-- <p class="counter" v-if="getQuantity">{{ getQuantity }}</p> -->
-          <button class="btn-plus" @click="updateList(info)">+</button>
+          <p class="counter" v-if="getQuantity">{{ getQuantity }}</p>
+          <button class="btn-plus" @click="addProduct(info)">+</button>
         </div>
       </div>
     </div>
@@ -31,24 +35,29 @@
 </template>
 
 <script>
-// import { mapGetters, mapActions } from "vuex";
+import { useShop } from "../stores/shop";
 export default {
   name: "ProductCart",
   props: {
     info: Object,
   },
-  // computed: {
-  //   ...mapGetters(["shopList"]),
-  //   getQuantity() {
-  //     return (
-  //       this.shopList.find((item) => item.product_id === this.info.product_id)
-  //         ?.quantity || 0
-  //     );
-  //   },
-  // },
-  //   methods: {
-  //     ...mapActions(["updateList", "discrimProduct"]),
-  //   },
+  computed: {
+    getQuantity() {
+      return (
+        useShop().shopList.find(
+          (item) => item.product_id === this.info.product_id
+        )?.quantity || 0
+      );
+    },
+  },
+  methods: {
+    addProduct(product) {
+      useShop().addProduct(product);
+    },
+    discrimProduct(id) {
+      useShop().minusProduct(id);
+    },
+  },
 };
 </script>
 

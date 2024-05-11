@@ -1,11 +1,12 @@
 <template>
   <main class="main">
-    <!-- <ProductGroup
+    <PromoStend />
+    <ProductGroup
       v-if="getProducts.sets"
       :title="getProducts.sets[0].category_name"
       :list="getProducts.sets"
-    /> -->
-    <!-- <ProductGroup
+    />
+    <ProductGroup
       v-if="getProducts.premiumRolls"
       :title="getProducts.premiumRolls[0].category_name"
       :list="getProducts.premiumRolls"
@@ -75,18 +76,20 @@
       :title="getProducts.sushiSet[0].category_name"
       :list="getProducts.sushiSet"
     />
-    <MobailShopBar /> -->
+    <MobailShopBar />
   </main>
 </template>
 
 <script>
 import MobailShopBar from "../modules/Header/MobailShopBar.vue";
+import PromoStend from "../modules/PromoStend/PromoStend.vue";
+PromoStend;
 import { useProducts } from "../stores/products";
 
 export default {
-  components: { MobailShopBar },
+  components: { MobailShopBar, PromoStend },
   computed: {
-    products() {
+    getProducts() {
       return useProducts().getProducts;
     },
   },
