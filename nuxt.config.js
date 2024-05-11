@@ -1,4 +1,12 @@
 export default defineNuxtConfig({
+  app: {
+    head: {
+      charset: "utf-8",
+      viewport: "width=device-width, initial-scale=1",
+      title: "Наші Суші",
+      link: [{ rel: "icon", type: "image/x-icon", href: "/sushi.svg" }],
+    },
+  },
   devtools: { enabled: true },
   components: true,
   css: ["~/styles/_base.scss"],
