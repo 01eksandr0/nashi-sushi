@@ -7,7 +7,7 @@
           href="https://www.instagram.com/nashi_sushi_bar/?igshid=NzAzN2Q1NTE%3D"
           target="_blank"
         >
-          <v-icon name="bi-instagram" scale="2" />
+          <v-icon name="bi-instagram" scale="2"></v-icon>
         </a>
       </li>
       <li class="shop">
@@ -19,7 +19,7 @@
       </li>
       <li class="menu-btn">
         <button class="nav-link" @click="openMobailMenu">
-          <v-icon name="co-menu" />
+          <v-icon name="co-menu"></v-icon>
         </button>
       </li>
     </ul>

@@ -13,9 +13,7 @@
 </template>
 
 <script>
-import ProductCart from "../ProductCart/ProductCart.vue";
 export default {
-  components: { ProductCart },
   props: {
     list: Array,
     title: String,

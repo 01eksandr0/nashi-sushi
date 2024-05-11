@@ -10,35 +10,35 @@ export const useProducts = defineStore("products", {
   },
   actions: {
     async fetchProducts() {
-      try {
-        const response = await axios.get(
-          "https://joinposter.com/api/menu.getProducts?token=388658:6876523b828df7f6545d67f8363887d5"
-        );
-        const products = response.data.response; // Предположим, что ответ содержит массив продуктов
-
-        this.products = {
-          sets: products.filter((i) => i.menu_category_id === "19"),
-          premiumRolls: products.filter((i) => i.menu_category_id === "22"),
-          philadelphia: products.filter((i) => i.menu_category_id === "10"),
-          california: products.filter((i) => i.menu_category_id === "11"),
-          futomaki: products.filter((i) => i.menu_category_id === "6"),
-          californiaWithSesame: products.filter(
-            (i) => i.menu_category_id === "12"
-          ),
-          hotRolls: products.filter((i) => i.menu_category_id === "7"),
-          warmRolls: products.filter((i) => i.menu_category_id === "8"),
-          bakedRolls: products.filter((i) => i.menu_category_id === "23"),
-          maki: products.filter((i) => i.menu_category_id === "5"),
-          sushi: products.filter((i) => i.menu_category_id === "13"),
-          soup: products.filter((i) => i.menu_category_id === "17"),
-          salad: products.filter((i) => i.menu_category_id === "16"),
-          drinks: products.filter((i) => i.menu_category_id === "3"),
-          sushiSet: products.filter((i) => i.menu_category_id === "20"),
-        };
-        console.log(1);
-      } catch (error) {
-        console.log(error);
-      }
+      const { data } = await axios.get(
+        "https://joinposter.com/api/menu.getProducts?token=388658:6876523b828df7f6545d67f8363887d5"
+      );
+      const list = data.response;
+      this.products.sets = list.filter((i) => i.menu_category_id === "19");
+      this.products.premiumRolls = list.filter(
+        (i) => i.menu_category_id === "22"
+      );
+      this.products.philadelphia = list.filter(
+        (i) => i.menu_category_id === "10"
+      );
+      this.products.california = list.filter(
+        (i) => i.menu_category_id === "11"
+      );
+      this.products.futomaki = list.filter((i) => i.menu_category_id === "6");
+      this.products.californiaWithSesame = list.filter(
+        (i) => i.menu_category_id === "12"
+      );
+      this.products.hotRolls = list.filter((i) => i.menu_category_id === "7");
+      this.products.warmRolls = list.filter((i) => i.menu_category_id === "8");
+      this.products.bakedRolls = list.filter(
+        (i) => i.menu_category_id === "23"
+      );
+      this.products.maki = list.filter((i) => i.menu_category_id === "5");
+      this.products.sushi = list.filter((i) => i.menu_category_id === "13");
+      this.products.soup = list.filter((i) => i.menu_category_id === "17");
+      this.products.salad = list.filter((i) => i.menu_category_id === "16");
+      this.products.drinks = list.filter((i) => i.menu_category_id === "3");
+      this.products.sushiSet = list.filter((i) => i.menu_category_id === "20");
     },
   },
 });
