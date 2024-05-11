@@ -15,7 +15,7 @@
           >Кошик
           <v-icon name="fa-shopping-cart" />
         </router-link>
-        <span v-if="getQuantity" class="quantity">{{}}</span>
+        <!-- <span v-if="getQuantity" class="quantity">{{}}</span> -->
       </li>
       <li class="menu-btn">
         <button class="nav-link" @click="openMobailMenu">
