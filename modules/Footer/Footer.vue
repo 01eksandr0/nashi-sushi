@@ -1,7 +1,7 @@
 <template>
   <footer class="footer">
     <Container>
-      <div class="container">
+      <div class="my-container">
         <Logo />
         <ul class="list">
           <li>
@@ -14,31 +14,39 @@
               >+38 (050) 564 39 77</a
             >
           </li>
+          <li class="list-icon">
+            <ListIcon />
+          </li>
           <li>
-            <a class="phone-link" href="">Миколи Закревського 103</a>
+            <a class="phone-link" href="">вул. Миколи Закревського 103</a>
           </li>
         </ul>
       </div>
     </Container>
+    <FooterBottom />
   </footer>
 </template>
 
 <script>
+import FooterBottom from "./FooterBottom.vue";
 export default {
   name: "MyFooter",
+  components: { FooterBottom },
 };
 </script>
 
 <style lang="scss" scoped>
 .footer {
   background-color: #fff;
-  padding: 20px 0;
+  padding-top: 20px;
 }
-.container {
+.my-container {
   display: flex;
   align-items: center;
+  justify-content: start;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
+  padding-bottom: 20px;
 }
 .list {
   display: flex;
@@ -51,16 +59,29 @@ export default {
   font-size: 18px;
 }
 @include media(tablet) {
-  .container {
+  .my-container {
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     gap: 200px;
+  }
+  .list {
+    flex-direction: row;
+    gap: 24px 40px;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-wrap: nowrap;
+  }
+  .list-icon {
+    width: 100%;
   }
 }
 @include media(desktop) {
-  .container {
-    gap: 350px;
+  .my-container {
+    justify-content: space-between;
+  }
+  .phone-link {
+    white-space: nowrap;
   }
 }
 </style>

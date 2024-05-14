@@ -48,8 +48,8 @@ export default {
   background-color: #fff;
   position: fixed;
   top: 10px;
-  left: 10px;
-  right: 10px;
+  left: 0px;
+  right: 0px;
   border-radius: 20px;
   z-index: 2;
 }
@@ -58,7 +58,6 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 10px;
 }
 @include media(tablet) {
   .header {

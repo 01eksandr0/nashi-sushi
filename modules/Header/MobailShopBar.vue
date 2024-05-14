@@ -1,10 +1,8 @@
 <template>
-  <div v-if="getQuantity" class="shop-bar">
+  <div @click="$router.push('/shop')" v-if="getQuantity" class="shop-bar">
     <p class="quantity">{{ getQuantity }} товар,</p>
     <p class="sum">{{ getSum }}грн</p>
-    <router-link class="link" to="/shop"
-      >Замовити<v-icon name="bi-chevron-right"
-    /></router-link>
+    <p class="link">Замовити<v-icon name="bi-chevron-right" /></p>
   </div>
 </template>
 

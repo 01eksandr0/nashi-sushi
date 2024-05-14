@@ -9,6 +9,9 @@ import {
   BiChevronRight,
   IoClose,
   IoChevronBack,
+  FaFacebookF,
+  MdLocationonSharp,
+  FaMinus,
 } from "oh-vue-icons/icons";
 
 addIcons(
@@ -20,7 +23,10 @@ addIcons(
   BiChevronDown,
   BiChevronRight,
   IoClose,
-  IoChevronBack
+  IoChevronBack,
+  FaFacebookF,
+  MdLocationonSharp,
+  FaMinus
 );
 
 export default defineNuxtPlugin((nuxtApp) => {

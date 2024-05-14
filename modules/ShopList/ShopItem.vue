@@ -7,14 +7,14 @@
     />
     <div class="text-content">
       <div class="title-container">
-        <h3 class="title">{{ info.product_name }}</h3>
+        <h3 class="title-item">{{ info.product_name }}</h3>
         <p class="price">
           Всього: {{ info.price[1].slice(0, -2) * getQuantity }} грн
         </p>
       </div>
       <div class="control">
         <button class="minus" @click="discrimProduct(info.product_id)">
-          -
+          <v-icon name="fa-minus" scale="0.5"></v-icon>
         </button>
         <p class="counter">{{ getQuantity }}</p>
         <button class="plus" @click="updateList(info)">+</button>
@@ -57,25 +57,26 @@ export default {
   gap: 30px;
   border-top: 1px solid #cec7ca;
   border-bottom: 1px solid #cec7ca;
-  height: 140px;
+  padding: 20px 0;
 }
 .img {
   height: 100px;
   width: 100px;
+  flex-shrink: 0;
 }
 .text-content {
   display: flex;
   align-items: start;
   justify-content: center;
   flex-direction: column;
-  gap: 12px;
 }
 .title-container {
   display: flex;
   flex-direction: column;
   align-items: start;
+  justify-content: start;
 }
-.title {
+.title-item {
   font-size: 18px;
 }
 .control {
@@ -124,6 +125,7 @@ export default {
   }
   .title-container {
     flex-direction: row;
+    align-items: center;
     gap: 30px;
   }
   .counter {
@@ -145,7 +147,7 @@ export default {
     align-items: center;
     gap: 100px;
   }
-  .title {
+  .title-item {
     margin: 0;
     font-size: 26px;
   }

@@ -71,11 +71,6 @@
       :title="getProducts.drinks[0].category_name"
       :list="getProducts.drinks"
     />
-    <ProductGroup
-      v-if="getProducts.sushiSet"
-      :title="getProducts.sushiSet[0].category_name"
-      :list="getProducts.sushiSet"
-    />
     <MobailShopBar />
   </main>
 </template>

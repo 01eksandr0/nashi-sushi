@@ -38,7 +38,6 @@ export const useProducts = defineStore("products", {
       this.products.soup = list.filter((i) => i.menu_category_id === "17");
       this.products.salad = list.filter((i) => i.menu_category_id === "16");
       this.products.drinks = list.filter((i) => i.menu_category_id === "3");
-      this.products.sushiSet = list.filter((i) => i.menu_category_id === "20");
     },
   },
 });

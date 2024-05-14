@@ -2,7 +2,7 @@
   <section>
     <Container>
       <div class="my-container">
-        <div class="title-container">
+        <div class="title-list-container">
           <button class="btn-back" @click="$router.back()">
             <v-icon name="io-chevron-back" /> Назад
           </button>
@@ -43,7 +43,7 @@ export default {
 };
 </script>
 <style lang="scss">
-.title-container {
+.title-list-container {
   display: flex;
   align-items: center;
   justify-content: space-between;

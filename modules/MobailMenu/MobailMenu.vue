@@ -20,7 +20,7 @@
       <li>
         <a class="phone-link" href="tel:+380505643977">+38 (050) 564 39 77</a>
       </li>
-      <li><a class="phone-link" href="">Закревського 103</a></li>
+      <li><ListIcon /></li>
     </ul>
   </div>
 </template>

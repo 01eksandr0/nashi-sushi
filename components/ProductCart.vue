@@ -24,7 +24,7 @@
             v-if="getQuantity"
             @click="discrimProduct(info.product_id)"
           >
-            -
+            <v-icon name="fa-minus" scale="0.7"></v-icon>
           </button>
           <p class="counter" v-if="getQuantity">{{ getQuantity }}</p>
           <button class="btn-plus" @click="addProduct(info)">+</button>
