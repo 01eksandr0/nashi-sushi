@@ -195,7 +195,7 @@ export default {
   color: $orange;
 }
 .btn {
-  height: 30px;
+  height: 50px;
   width: 100%;
   background-color: #fff;
   color: $orange;

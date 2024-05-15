@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <h2 class="title">{{ title }}</h2>
+    <p class="title">{{ title }}</p>
     <div
       :class="{ 'my-select': true, 'my-select-active': isVisible }"
       @click="isVisible = !isVisible"

@@ -35,8 +35,8 @@ export default {
 <style lang="scss" scoped>
 .input {
   width: 100%;
-  height: 35px;
-  border: none;
+  height: 40px;
+  border: 1px solid $orange;
   border-radius: 10px;
   padding-left: 15px;
   outline: none;
@@ -48,7 +48,7 @@ export default {
 }
 .textarea {
   width: 100%;
-  border: none;
+  border: 1px solid $orange;
   border-radius: 10px;
   padding: 20px;
   outline: none;

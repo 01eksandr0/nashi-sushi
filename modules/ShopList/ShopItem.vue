@@ -140,7 +140,7 @@ export default {
 }
 @include media(desktop) {
   .item {
-    padding: 0 20px;
+    padding: 20px;
   }
   .title-container {
     display: flex;
