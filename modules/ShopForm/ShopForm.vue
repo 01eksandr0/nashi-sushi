@@ -90,6 +90,32 @@
             :placeholder="'Тут ви можете залишити свій коментар до замовлення...'"
             :type="'textarea'"
         /></label>
+        <div class="person-quantity">
+          <p class="person-title">Кількість персон</p>
+          <ul class="person-list">
+            <li>
+              <button
+                class="person-btn"
+                type="button"
+                @click="personQuantity--"
+              >
+                <v-icon name="fa-minus" scale="0.5"></v-icon>
+              </button>
+            </li>
+            <li>
+              <p>{{ personQuantity }}</p>
+            </li>
+            <li>
+              <button
+                @click="personQuantity++"
+                class="person-btn"
+                type="button"
+              >
+                +
+              </button>
+            </li>
+          </ul>
+        </div>
         <div class="inputs">
           <p class="price">
             До сплати: <span class="sum"> {{ getSum }}грн</span>
@@ -112,6 +138,7 @@ export default {
       typeOrder: "takeaway",
       restoran: "",
       list: generateTimeIntervals(),
+      personQuantity: 0,
     };
   },
   computed: {
@@ -213,6 +240,31 @@ export default {
     background-color: $orange;
     color: #fff;
   }
+}
+.person-quantity {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+.person-title {
+  font-size: 18px;
+}
+.person-list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.person-btn {
+  width: 25px;
+  height: 25px;
+  background-color: $orange;
+  color: #fff;
+  font-size: 20px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
 }
 @include media(tablet) {
   .form {
