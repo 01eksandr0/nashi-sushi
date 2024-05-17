@@ -18,6 +18,7 @@ export default defineNuxtConfig({
     stores: [
       { store: "~/stores/products.js", name: "products" },
       { store: "~/stores/shop.js", name: "shop" },
+      { store: "~/stores/isShow.js", name: "show" },
     ],
   },
   vite: {

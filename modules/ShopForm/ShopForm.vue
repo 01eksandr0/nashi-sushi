@@ -2,7 +2,7 @@
   <section>
     <Container>
       <h2 class="title">Оформлення замовлення</h2>
-      <form class="form">
+      <form @submit.prevent class="form">
         <div class="inputs">
           <label class="label"
             >Імʼя
@@ -13,7 +13,10 @@
           /></label>
           <label class="label"
             >Номер телефону
-            <MyInput :type="'input'" :placeholder="'Ваш номер телефону'"
+            <MyInput
+              :type="'input'"
+              v-model="userPhone"
+              :placeholder="'Ваш номер телефону'"
           /></label>
         </div>
         <div class="radio-group">
@@ -53,11 +56,16 @@
               :title="'Виберіть заклад'"
               @getValue="(value) => (restoran = value)"
             />
-            <MySelect :title="'Виберіть час'" :list="list" />
+            <MySelect
+              :title="'Виберіть час'"
+              :list="list"
+              @getValue="(value) => (time = value)"
+            />
           </div>
           <MySelect
             :title="'Виберіть спосіб оплати'"
             :list="['Готівка', 'Банківська карта']"
+            @getValue="(value) => (payment = value)"
           />
         </div>
         <div v-else>
@@ -97,7 +105,7 @@
               <button
                 class="person-btn"
                 type="button"
-                @click="personQuantity--"
+                @click="() => personQuantity > 0 && personQuantity--"
               >
                 <v-icon name="fa-minus" scale="0.5"></v-icon>
               </button>
@@ -120,7 +128,7 @@
           <p class="price">
             До сплати: <span class="sum"> {{ getSum }}грн</span>
           </p>
-          <button class="btn">Замовити</button>
+          <button class="btn" @click="handleSubmit">Замовити</button>
         </div>
       </form>
     </Container>
@@ -130,20 +138,44 @@
 <script>
 import { generateTimeIntervals } from "../../helpers/generateTimeIntervals.js";
 import { useShop } from "../../stores/shop";
+import { useShow } from "../../stores/isShow";
 export default {
   name: "ShopForm",
   data() {
     return {
       userName: "",
+      userPhone: "",
       typeOrder: "takeaway",
-      restoran: "",
+      restoran: "Наші Суші",
+      time: "Найближчий час",
       list: generateTimeIntervals(),
+      payment: "Готівка",
+      comment: "",
       personQuantity: 0,
+      orderError: { name: false, phone: false, person: false },
     };
   },
   computed: {
     getSum() {
       return useShop().getSum;
+    },
+  },
+  methods: {
+    async handleSubmit() {
+      if (!this.userName) {
+        this.orderError.name = true;
+      } else this.orderError.name = false;
+      if (!this.userPhone) {
+        this.orderError.phone = true;
+      } else this.orderError.phone = false;
+      if (!this.personQuantity) {
+        this.orderError.person = true;
+      } else this.orderError.person = false;
+      if (this.userName && this.userPhone && this.personQuantity) {
+        useShop().deleteShop(true);
+        this.$router.push("/");
+        useShow().changeThankModal(true);
+      } else return;
     },
   },
 };

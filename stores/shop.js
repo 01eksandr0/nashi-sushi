@@ -20,5 +20,8 @@ export const useShop = defineStore("shop", {
       const index = this.shop.findIndex((i) => i.product_id === id);
       this.shop[index].quantity--;
     },
+    deleteShop(i = true) {
+      if (i) this.shop = [];
+    },
   },
 });
