@@ -1,11 +1,9 @@
 <template>
   <header class="header">
     <container>
-      <div class="container-header">
-        <logo />
-        <telephone />
-        <nav-bar :openMobailMenu="openMobailMenu" />
-      </div>
+      <logo />
+      <telephone />
+      <nav-bar :openMobailMenu="openMobailMenu" />
     </container>
     <FilterScroll v-if="$route.path === '/' && getProducts.drinks" />
     <MobailMenu v-if="isMobailMenu" :closeModalMenu="closeModalMenu" />
