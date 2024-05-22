@@ -2,6 +2,7 @@
   <header class="header">
     <container>
       <div class="container-header">
+        <my-select :list="['uk', 'en']" :title="'lang'" />
         <logo />
         <telephone />
         <nav-bar :openMobailMenu="openMobailMenu" />

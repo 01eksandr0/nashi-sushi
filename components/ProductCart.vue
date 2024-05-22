@@ -4,6 +4,7 @@
       <img
         :src="'https://joinposter.com' + (info.photo_origin || info.photo)"
         alt=""
+        loading="lazy"
         class="img"
       />
     </div>
