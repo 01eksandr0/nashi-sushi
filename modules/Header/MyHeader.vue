@@ -1,8 +1,12 @@
 <template>
   <header class="header">
-    <Logo />
-    <telephone />
-    <nav-bar :openMobailMenu="openMobailMenu" />
+    <Container>
+      <div class="container-header">
+        <Logo />
+        <Telephone />
+        <NavBar :openMobailMenu="openMobailMenu" />
+      </div>
+    </Container>
     <FilterScroll v-if="$route.path === '/' && getProducts.drinks" />
     <MobailMenu v-if="isMobailMenu" :closeModalMenu="closeModalMenu" />
   </header>
@@ -13,11 +17,10 @@ import MobailMenu from "../MobailMenu/MobailMenu.vue";
 import NavBar from "./NavBar.vue";
 import Telephone from "./Telephone.vue";
 import FilterScroll from "./FilterScroll.vue";
-import Logo from "../../components/Logo.vue";
 import { useProducts } from "../stores/products";
 
 export default {
-  components: { NavBar, Telephone, FilterScroll, MobailMenu, Logo },
+  components: { NavBar, Telephone, FilterScroll, MobailMenu },
   data() {
     return {
       isMobailMenu: false,
@@ -41,6 +44,7 @@ export default {
 
 <style lang="scss" scoped>
 .header {
+  padding: 8px 0;
   background-color: #fff;
   position: fixed;
   top: 10px;
@@ -48,16 +52,14 @@ export default {
   right: 0px;
   border-radius: 20px;
   z-index: 2;
+}
+.container-header {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(3, auto);
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
-  padding: 8px 16px;
-  width: 375px;
-  margin: 0 auto;
 }
-
 @include media(tablet) {
   .header {
     padding: 16px 0;
