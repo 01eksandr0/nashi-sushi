@@ -54,6 +54,8 @@ export default {
   align-items: center;
   gap: 10px;
   padding: 8px 16px;
+  width: 375px;
+  margin: 0 auto;
 }
 
 @include media(tablet) {
