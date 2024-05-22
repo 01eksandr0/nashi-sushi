@@ -1,6 +1,5 @@
 <template>
   <main class="main">
-    <logo />
     <PromoStend />
     <ProductGroup
       v-if="getProducts.sets"

@@ -2,9 +2,9 @@
   <header class="header">
     <container>
       <div class="container-header">
-        <!-- <logo />
+        <logo />
         <telephone />
-        <nav-bar :openMobailMenu="openMobailMenu" /> -->
+        <nav-bar :openMobailMenu="openMobailMenu" />
       </div>
     </container>
     <FilterScroll v-if="$route.path === '/' && getProducts.drinks" />
