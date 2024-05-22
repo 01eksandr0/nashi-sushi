@@ -48,7 +48,8 @@ export default {
   right: 0px;
   border-radius: 20px;
   z-index: 2;
-
+  display: inline-flex;
+  justify-content: start;
   padding: 8px 16px;
 }
 
