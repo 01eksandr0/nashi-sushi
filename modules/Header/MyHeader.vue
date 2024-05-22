@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <container>
-      <div>
+      <div class="header-container">
         <logo />
         <telephone />
         <nav-bar :openMobailMenu="openMobailMenu" />
@@ -53,7 +53,7 @@ export default {
   border-radius: 20px;
   z-index: 2;
 }
-.container-header {
+.header-container {
   width: 100%;
   display: flex;
   align-items: center;
