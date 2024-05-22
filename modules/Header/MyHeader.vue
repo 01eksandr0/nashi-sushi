@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="container">
-      <logo />
+      <Logo />
       <telephone />
       <nav-bar :openMobailMenu="openMobailMenu" />
     </div>
@@ -15,10 +15,11 @@ import MobailMenu from "../MobailMenu/MobailMenu.vue";
 import NavBar from "./NavBar.vue";
 import Telephone from "./Telephone.vue";
 import FilterScroll from "./FilterScroll.vue";
+import Logo from "../../components/Logo.vue";
 import { useProducts } from "../stores/products";
 
 export default {
-  components: { NavBar, Telephone, FilterScroll, MobailMenu },
+  components: { NavBar, Telephone, FilterScroll, MobailMenu, Logo },
   data() {
     return {
       isMobailMenu: false,
@@ -53,7 +54,6 @@ export default {
 }
 .container {
   display: flex;
-  align-items: center;
   width: 375px;
   margin: 0 auto;
   padding: 0 16px;
