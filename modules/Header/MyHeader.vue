@@ -1,13 +1,12 @@
 <template>
   <header class="header">
-    <Container>
+    <container>
       <div class="container-header">
-        <p>1</p>
-        <Logo />
-        <Telephone />
-        <NavBar :openMobailMenu="openMobailMenu" />
+        <logo />
+        <telephone />
+        <nav-bar :openMobailMenu="openMobailMenu" />
       </div>
-    </Container>
+    </container>
     <FilterScroll v-if="$route.path === '/' && getProducts.drinks" />
     <MobailMenu v-if="isMobailMenu" :closeModalMenu="closeModalMenu" />
   </header>
