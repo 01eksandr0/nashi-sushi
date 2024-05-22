@@ -1,10 +1,8 @@
 <template>
   <header class="header">
-    <div class="container">
-      <Logo />
-      <telephone />
-      <nav-bar :openMobailMenu="openMobailMenu" />
-    </div>
+    <Logo />
+    <telephone />
+    <nav-bar :openMobailMenu="openMobailMenu" />
     <FilterScroll v-if="$route.path === '/' && getProducts.drinks" />
     <MobailMenu v-if="isMobailMenu" :closeModalMenu="closeModalMenu" />
   </header>
@@ -43,7 +41,6 @@ export default {
 
 <style lang="scss" scoped>
 .header {
-  padding: 8px 0;
   background-color: #fff;
   position: fixed;
   top: 10px;
@@ -51,13 +48,12 @@ export default {
   right: 0px;
   border-radius: 20px;
   z-index: 2;
-}
-.container {
   display: flex;
   width: 375px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 8px 16px;
 }
+
 @include media(tablet) {
   .header {
     padding: 16px 0;
