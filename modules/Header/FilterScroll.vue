@@ -3,9 +3,12 @@
     <Container>
       <ul class="scroll-bar">
         <li v-for="value in products" :key="value[0].menu_category_id">
-          <a :href="'#' + value[0].menu_category_id" class="scroll-link">{{
-            value[0].category_name
-          }}</a>
+          <a
+            :href="'#_' + value[0].menu_category_id"
+            class="scroll-link"
+            @click.prevent="() => clickLink(`_${value[0].menu_category_id}`)"
+            >{{ value[0].category_name }}</a
+          >
         </li>
       </ul>
     </Container>
@@ -19,6 +22,13 @@ export default {
   computed: {
     products() {
       return useProducts().getProducts;
+    },
+  },
+  methods: {
+    clickLink(id) {
+      const section = document.getElementById(id);
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+      setTimeout(() => window.scrollBy(0, -100), 700);
     },
   },
 };

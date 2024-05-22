@@ -12,6 +12,7 @@ import {
   FaFacebookF,
   MdLocationonSharp,
   FaMinus,
+  BiStarFill,
 } from "oh-vue-icons/icons";
 
 addIcons(
@@ -26,7 +27,8 @@ addIcons(
   IoChevronBack,
   FaFacebookF,
   MdLocationonSharp,
-  FaMinus
+  FaMinus,
+  BiStarFill
 );
 
 export default defineNuxtPlugin((nuxtApp) => {

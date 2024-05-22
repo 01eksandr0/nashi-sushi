@@ -7,7 +7,7 @@
       <li v-for="value in getProducts" :key="value[0].menu_category_id">
         <a
           @click="closeModalMenu"
-          :href="'#' + value[0].menu_category_id"
+          :href="'#_' + value[0].menu_category_id"
           class="list-link"
           >{{ value[0].category_name }}</a
         >

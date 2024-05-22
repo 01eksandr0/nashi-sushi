@@ -5,19 +5,32 @@
       <form @submit.prevent class="form">
         <div class="inputs">
           <label class="label"
-            >Імʼя
+            ><span class="label-title"
+              >Імʼя<v-icon class="label-icon" name="bi-star-fill" scale="0.3"
+            /></span>
             <MyInput
               :type="'input'"
               v-model="userName"
               :placeholder="'Ваше імʼя'"
-          /></label>
+            /><span v-if="orderError.name" class="error-message"
+              >Це поле обовʼязкове</span
+            ></label
+          >
           <label class="label"
-            >Номер телефону
+            ><span class="label-title"
+              >Номер телефону<v-icon
+                class="label-icon"
+                name="bi-star-fill"
+                scale="0.3"
+            /></span>
             <MyInput
               :type="'input'"
               v-model="userPhone"
               :placeholder="'Ваш номер телефону'"
-          /></label>
+            /><span v-if="orderError.phone" class="error-message"
+              >Це поле обовʼязкове</span
+            ></label
+          >
         </div>
         <div class="radio-group">
           <label class="radio-label"
@@ -188,11 +201,27 @@ export default {
 }
 .label {
   display: flex;
+  position: relative;
   align-items: start;
   flex-direction: column;
   gap: 5px;
   width: 100%;
   margin-bottom: 10px;
+}
+.label-title {
+  position: relative;
+}
+.label-icon {
+  position: absolute;
+  top: -1px;
+  right: -8px;
+  color: red;
+}
+.error-message {
+  position: absolute;
+  font-size: 10px;
+  color: red;
+  bottom: -12px;
 }
 .radio-group {
   display: flex;
