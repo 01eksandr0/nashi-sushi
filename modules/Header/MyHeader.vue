@@ -1,12 +1,10 @@
 <template>
   <header class="header">
-    <container>
-      <div class="header-container">
-        <logo />
-        <telephone />
-        <nav-bar :openMobailMenu="openMobailMenu" />
-      </div>
-    </container>
+    <div class="container">
+      <logo />
+      <telephone />
+      <nav-bar :openMobailMenu="openMobailMenu" />
+    </div>
     <FilterScroll v-if="$route.path === '/' && getProducts.drinks" />
     <MobailMenu v-if="isMobailMenu" :closeModalMenu="closeModalMenu" />
   </header>
@@ -53,9 +51,12 @@ export default {
   border-radius: 20px;
   z-index: 2;
 }
-.header-container {
+.container {
   display: flex;
   align-items: center;
+  width: 375px;
+  margin: 0 auto;
+  padding: 0 16px;
 }
 @include media(tablet) {
   .header {
