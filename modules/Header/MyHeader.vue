@@ -54,7 +54,6 @@ export default {
   z-index: 2;
 }
 .header-container {
-  width: 100%;
   display: flex;
   align-items: center;
 }
