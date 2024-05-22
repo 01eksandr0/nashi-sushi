@@ -48,8 +48,11 @@ export default {
   right: 0px;
   border-radius: 20px;
   z-index: 2;
-  display: inline-flex;
-  justify-content: start;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
   padding: 8px 16px;
 }
 
