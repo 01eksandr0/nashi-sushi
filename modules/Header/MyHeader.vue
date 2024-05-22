@@ -1,8 +1,6 @@
 <template>
   <header class="header">
-    <a class="link" href="/"
-      ><img class="logo-img" src="~/assets/svg/logo.svg" alt="Logo"
-    /></a>
+    <Logo />
     <telephone />
     <nav-bar :openMobailMenu="openMobailMenu" />
     <FilterScroll v-if="$route.path === '/' && getProducts.drinks" />
@@ -51,30 +49,12 @@ export default {
   border-radius: 20px;
   z-index: 2;
   display: flex;
-  width: 375px;
-  margin: 0 auto;
   padding: 8px 16px;
 }
 
 @include media(tablet) {
   .header {
     padding: 16px 0;
-  }
-}
-.logo-img {
-  height: 30px;
-}
-.link {
-  flex-shrink: 0;
-}
-@include media(tablet) {
-  .logo-img {
-    height: 40px;
-  }
-}
-@include media(desktop) {
-  .logo-img {
-    height: 50px;
   }
 }
 </style>
