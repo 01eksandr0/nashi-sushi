@@ -30,4 +30,13 @@ export default defineNuxtConfig({
       },
     },
   },
+  server: {
+    proxy: {
+      "/api": {
+        target: "https://joinposter.com",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+    },
+  },
 });

@@ -152,6 +152,7 @@
 import { generateTimeIntervals } from "../../helpers/generateTimeIntervals.js";
 import { useShop } from "../../stores/shop";
 import { useShow } from "../../stores/isShow";
+import axios from "axios";
 export default {
   name: "ShopForm",
   data() {
@@ -185,6 +186,28 @@ export default {
         this.orderError.person = true;
       } else this.orderError.person = false;
       if (this.userName && this.userPhone && this.personQuantity) {
+        //====================
+        try {
+          const response = await axios.post(
+            "https://joinposter.com/api/incomingOrders.createIncomingOrder?token=388658:6876523b828df7f6545d67f8363887d5",
+            {
+              spot_id: 1,
+              phone: "+380680000000",
+              products: [
+                {
+                  product_id: 9,
+                  count: 1,
+                },
+              ],
+              comment: "Тестирование",
+            }
+          );
+          console.log(response);
+        } catch (error) {
+          console.log(error);
+        }
+        //==================
+
         useShop().deleteShop(true);
         this.$router.push("/");
         useShow().changeThankModal(true);
