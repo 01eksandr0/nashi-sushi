@@ -190,15 +190,17 @@ export default {
         const response = await axios.post("/api/create-order", {
           phone: this.userPhone,
           name: this.userName,
-          payment: this.payment,
+          payment: this.payment === "Готівка" ? "cash" : "card",
           delivery_time: this.time,
           service_mode: this.typeOrder === "takeaway" ? 2 : 3,
           comment: this.comment,
           products: [
-            ...useShop().shopList.map((i) => ({
-              product_id: i.product_id,
-              count: i.quantity,
-            })),
+            ...useShop()
+              .shopList.filter((i) => i.quantity)
+              .map((i) => ({
+                product_id: i.product_id,
+                count: i.quantity,
+              })),
           ],
         });
         console.log(response);

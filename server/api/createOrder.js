@@ -5,13 +5,12 @@ import { serializeError } from "serialize-error";
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
   const params = {
-    phone: body.phone,
-    name: body.name,
-    payment: body.payment,
-    delivery_time: "2024-05-28 22:00:00",
-    service_mode: body.service_mode,
-    comment: body.comment,
+    first_name: body.name,
+    phone: "+380680000001",
     products: body.products,
+    delivery_time: "2024-05-29 16:00:00",
+    fiscal_method: body.payment,
+    comment: body.comment,
   };
 
   try {
@@ -26,11 +25,10 @@ export default defineEventHandler(async (event) => {
     return {
       message: "Order created successfully!",
       data: response.data,
+      info: body.products,
     };
   } catch (error) {
     console.error(serializeError(error));
-
-    // Возвращаем сериализованную ошибку для корректной обработки на клиенте
     return {
       statusCode: 500,
       message: "An error occurred while creating the order",
