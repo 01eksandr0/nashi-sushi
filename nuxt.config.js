@@ -8,10 +8,18 @@ export default defineNuxtConfig({
     },
   },
   devtools: { enabled: true },
+
+  serverHandlers: [
+    {
+      route: "/api/create-order",
+      handler: "~/server/api/createOrder.js",
+    },
+  ],
   components: true,
   css: ["~/styles/_base.scss"],
   plugins: ["~/plugins/oh-vue-icons.js"],
   modules: ["@pinia/nuxt"],
+
   pinia: {
     enable: true,
     autoInstall: true,
@@ -27,15 +35,6 @@ export default defineNuxtConfig({
         scss: {
           additionalData: '@use "~/styles/_constans.scss" as *;',
         },
-      },
-    },
-  },
-  server: {
-    proxy: {
-      "/api": {
-        target: "https://joinposter.com",
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ""),
       },
     },
   },
