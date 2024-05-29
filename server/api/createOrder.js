@@ -8,9 +8,10 @@ export default defineEventHandler(async (event) => {
     first_name: body.name,
     phone: "+380680000001",
     products: body.products,
-    delivery_time: "2024-05-29 16:00:00",
+    delivery_time: "2024-05-29 17:00:00",
     fiscal_method: body.payment,
     comment: body.comment,
+    service_mode: body.service_mode,
   };
 
   try {

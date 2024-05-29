@@ -84,7 +84,12 @@
         <div v-else>
           <div class="inputs">
             <label class="label"
-              >Адреса
+              ><span class="label-title"
+                >Адреса<v-icon
+                  class="label-icon"
+                  name="bi-star-fill"
+                  scale="0.3"
+              /></span>
               <MyInput
                 :type="'input'"
                 :placeholder="'проспект Червоної Калини 1'"
@@ -201,6 +206,7 @@ export default {
                 product_id: i.product_id,
                 count: i.quantity,
               })),
+            { product_id: "73", count: this.personQuantity },
           ],
         });
         console.log(response);
